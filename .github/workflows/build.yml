@@ -42,7 +42,8 @@ jobs:
           libjpeg-dev \
           libssl-dev \
           libffi-dev \
-          libltdl-dev
+          libltdl-dev \
+          ant
     
     - name: Install Buildozer
       run: |
@@ -59,9 +60,11 @@ jobs:
     - name: Build APK
       run: |
         buildozer -v android debug
+      continue-on-error: false
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
+      if: success()
       with:
         name: searchpilot-apk
         path: bin/*.apk
