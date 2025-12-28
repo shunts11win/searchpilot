@@ -13,8 +13,6 @@ source.include_exts = py,png,jpg,kv,atlas
 
 # バージョン情報
 version = 3.2
-version.regex = __version__ = ['"](.*)['"]
-version.filename = %(source.dir)s/main.py
 
 # 必要なPythonパッケージ
 requirements = python3,kivy,requests
